@@ -5,30 +5,30 @@ function isValidInput(str) {
 }
 
 function GuessInput({ onAddGuess }) {
-  const [guess, setGuess] = React.useState('');
+  const [tentativeGuess, setTentativeGuess] = React.useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (!isValidInput(guess)) {
+    if (!isValidInput(tentativeGuess)) {
       return alert('Not enough letters! 💖');
     }
 
-    onAddGuess(guess);
-    setGuess('');
+    onAddGuess(tentativeGuess);
+    setTentativeGuess('');
   }
 
   function handleOnChange(e) {
     const nextGuessString = e.target.value.toUpperCase().trim();
     if (nextGuessString.length > 5) return;
-    setGuess(nextGuessString);
+    setTentativeGuess(nextGuessString);
   }
 
   return (
     <>
       <form className="guess-input-wrapper" onSubmit={handleSubmit}>
         <label htmlFor="guess-input">Enter guess:</label>
-        <input id="guess-input" type="text" value={guess} onChange={handleOnChange} />
+        <input id="guess-input" type="text" value={tentativeGuess} onChange={handleOnChange} />
       </form>
     </>
   );
