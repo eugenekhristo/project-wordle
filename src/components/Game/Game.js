@@ -6,8 +6,8 @@ import { sample } from '../../utils';
 import { WORDS } from '../../data';
 
 // Pick a random word on every pageload.
-const answer = sample(WORDS);
-console.info({ answer });
+window.wordleAnswer = sample(WORDS);
+console.info({ answer: window.wordleAnswer });
 
 function Game() {
   const [guesses, setGuesses] = React.useState([]);
